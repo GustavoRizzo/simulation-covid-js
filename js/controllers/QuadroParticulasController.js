@@ -14,12 +14,10 @@ class QuadroParticulasController{
         this.ctx = elCanvas.getContext('2d');
     
         this.particulas = [];
-        this.particulas.push(
-            new Particula(this.ctx),
-            new Particula(this.ctx),
-            new Particula(this.ctx),
-            new Particula(this.ctx)
-        );    
+
+        for (var i=0; i<100; i++){
+            this.particulas.push( new Particula(this.ctx) );
+        }  
 
         this.x = 0;
         this.render();

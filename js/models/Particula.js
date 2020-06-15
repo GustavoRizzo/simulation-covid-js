@@ -5,6 +5,7 @@ class Particula {
         this.x = Math.random() * this.drawContext.canvas.clientWidth;
         this.y = Math.random() * this.drawContext.canvas.clientHeight;
         this.radius = 10;
+        this.speed = 10;
     }
 
     draw() {
@@ -13,5 +14,11 @@ class Particula {
         this.drawContext.closePath();
         this.drawContext.fillStyle = '#FFF';
         this.drawContext.fill();
+
+        this.update();
+    }
+
+    update() {
+        this.x += this.speed; 
     }
 }
