@@ -4,14 +4,17 @@
 }
 
 body, html {
-    height: 100%;
-    width: 100%;
     margin: 0;
     padding: 0;
     background: black;
 }
 
-canvas {
+#quadroPacticulas {    
+    width: 1000px;
+    height: 500px;
+}
+
+#canvas {
     display: block;
     border: solid 10px red;
 }
