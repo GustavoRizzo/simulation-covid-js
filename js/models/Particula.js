@@ -10,7 +10,7 @@ class Particula {
             x: Math.random() * this.drawContextWidthLimit,
             y: Math.random() * this.drawContextHeightLimit
         };        
-        this.speed = 3;
+        this.speed = 1.5;
         this.directionAngle = Math.floor(Math.random() * 360);
         this.vSpeed = {
             x: (Math.cos(this.directionAngle) * this.speed),
@@ -41,6 +41,21 @@ class Particula {
 
         if ( this.vPosition.y < 0 || this.vPosition.y > this.drawContextHeightLimit ) {
             this.vSpeed.y *= -1;
+        }
+    }
+
+    static linkParticulas(particula,  outrasParticulas, contexto) {
+        for (const p of outrasParticulas) {
+            const distancia = Math.hypot( (p.vPosition.x - particula.vPosition.x) , (p.vPosition.y - particula.vPosition.y) );
+            if (distancia< 100)
+            {
+                contexto.linetWidth = 1;
+                contexto.strokeStyle = 'white';
+                contexto.beginPath();
+                contexto.moveTo(particula.vPosition.x, particula.vPosition.y);
+                contexto.lineTo(p.vPosition.x, p.vPosition.y);
+                contexto.stroke();
+            }
         }
     }
 }

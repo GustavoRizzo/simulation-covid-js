@@ -15,7 +15,7 @@ class QuadroParticulasController{
     
         this.particulas = [];
 
-        for (var i=0; i<100; i++){
+        for (var i=0; i<25; i++){
             this.particulas.push( new Particula(this.ctx) );
         }  
 
@@ -30,7 +30,8 @@ class QuadroParticulasController{
         this.ctx.clearRect(0, 0, this.ctx.canvas.clientWidth , this.ctx.canvas.clientHeight);
 
         this.particulas.forEach (particula => {
-            particula.draw(this.ctx);        
+            particula.draw(this.ctx);
+            Particula.linkParticulas(particula, this.particulas, this.ctx);        
         });
 
         // Desenhando quadrado teste
