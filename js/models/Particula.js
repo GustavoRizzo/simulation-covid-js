@@ -2,10 +2,13 @@ class Particula {
 
     constructor(context) {
         this.drawContext = context;
+        this.drawContextWidthLimit = this.drawContext.canvas.clientWidth;
+        this.drawContextHeightLimit = this.drawContext.canvas.clientHeight;
+
         this.radius = 10;
         this.vPosition = {
-            x: Math.random() * this.drawContext.canvas.clientWidth,
-            y: Math.random() * this.drawContext.canvas.clientHeight
+            x: Math.random() * this.drawContextWidthLimit,
+            y: Math.random() * this.drawContextHeightLimit
         };        
         this.speed = 3;
         this.directionAngle = Math.floor(Math.random() * 360);
@@ -26,7 +29,18 @@ class Particula {
     }
 
     update() {
+        this.checkBoudaries();
         this.vPosition.x += this.vSpeed.x; 
         this.vPosition.y += this.vSpeed.y; 
+    }
+
+    checkBoudaries() {
+        if ( this.vPosition.x < 0 || this.vPosition.x > this.drawContextWidthLimit ) {
+            this.vSpeed.x *= -1;
+        }
+
+        if ( this.vPosition.y < 0 || this.vPosition.y > this.drawContextHeightLimit ) {
+            this.vSpeed.y *= -1;
+        }
     }
 }
