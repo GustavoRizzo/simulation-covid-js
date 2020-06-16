@@ -5,7 +5,7 @@ class Particula {
         this.drawContextWidthLimit = this.drawContext.canvas.clientWidth;
         this.drawContextHeightLimit = this.drawContext.canvas.clientHeight;
 
-        this.radius = 10;
+        this.radius = 7;
         this.vPosition = {
             x: Math.random() * this.drawContextWidthLimit,
             y: Math.random() * this.drawContextHeightLimit
@@ -45,12 +45,14 @@ class Particula {
     }
 
     static linkParticulas(particula,  outrasParticulas, contexto) {
+        this.distMin = 100;
         for (const p of outrasParticulas) {
             const distancia = Math.hypot( (p.vPosition.x - particula.vPosition.x) , (p.vPosition.y - particula.vPosition.y) );
-            if (distancia< 100)
+            if (distancia< this.distMin)
             {
+                const opacity = 1 - distancia/this.distMin;
                 contexto.linetWidth = 1;
-                contexto.strokeStyle = 'white';
+                contexto.strokeStyle = `rgba(255,255,255,${opacity})`;
                 contexto.beginPath();
                 contexto.moveTo(particula.vPosition.x, particula.vPosition.y);
                 contexto.lineTo(p.vPosition.x, p.vPosition.y);

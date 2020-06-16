@@ -15,7 +15,7 @@ class QuadroParticulasController{
     
         this.particulas = [];
 
-        for (var i=0; i<25; i++){
+        for (var i=0; i<35; i++){
             this.particulas.push( new Particula(this.ctx) );
         }  
 
