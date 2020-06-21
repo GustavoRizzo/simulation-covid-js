@@ -1,2 +1,12 @@
-# simulation-covid-js
-Try replicate the washington post, using this vídeo https://www.youtube.com/watch?v=rhLTJ4Tjyyo
+# What is this?
+
+Try replicate the washington post, base on this vídeo https://www.youtube.com/watch?v=rhLTJ4Tjyyo
+
+# How to run?
+
+`npm run dev`
+
+# How to build publish?
+
+`npm run prod`
+
