@@ -1,4 +1,4 @@
-class Particula {
+export default class Particula {
 
     constructor(context) {
         this.drawContext = context;

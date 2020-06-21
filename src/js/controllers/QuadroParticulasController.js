@@ -1,4 +1,6 @@
-class QuadroParticulasController{
+import Particula from '../models/Particula'
+
+export default class QuadroParticulasController{
 
     constructor() {
 
@@ -13,40 +15,31 @@ class QuadroParticulasController{
         // Dando contexto ao cnavas
         this.ctx = elCanvas.getContext('2d');
     
-        console.log ('antes');
-    
-        let particlas = [];
-        particlas.push(
-            new Particula(this.ctx),
-            new Particula(this.ctx),
-            new Particula(this.ctx),
-            new Particula(this.ctx)
-        );
-    
+        this.particulas = [];
+
+        for (var i=0; i<35; i++){
+            this.particulas.push( new Particula(this.ctx) );
+        }  
+
         this.x = 0;
-         
-        this.render(particlas);
+        this.render();
     }
 
-    render( particlas){
-        // variaveis globais:
-        //    x , existe somente para animação do quadrado de teste
-
+    render(){
+        
         // Criando o looping de renderização
-        requestAnimationFrame(()=>this.render);
+        requestAnimationFrame(this.render.bind(this));
         this.ctx.clearRect(0, 0, this.ctx.canvas.clientWidth , this.ctx.canvas.clientHeight);
 
-        particlas.forEach (particla => {
-            particla.draw(this.ctx);        
+        this.particulas.forEach (particula => {
+            particula.draw(this.ctx);
+            Particula.linkParticulas(particula, this.particulas, this.ctx);        
         });
 
         // Desenhando quadrado teste
         this.ctx.fillStyle = '#F00';
         this.ctx.fillRect(this.x, 0, 100, 100);
         // animando
-        this.x++;
-        console.log(this.x);
-        
+        this.x++;        
     }
-
 }
