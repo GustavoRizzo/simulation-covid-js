@@ -5,4 +5,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"../models/Particula":"QkT9"}],"QvaY":[function(require,module,exports) {
 "use strict";var r=e(require("./controllers/QuadroParticulasController"));function e(r){return r&&r.__esModule?r:{default:r}}var t=new r.default;
 },{"./controllers/QuadroParticulasController":"H3CU"}]},{},["QvaY"], null)
-//# sourceMappingURL=/js.14e3eadb.js.map
+//# sourceMappingURL=/simulation-covid-js/js.14e3eadb.js.map
