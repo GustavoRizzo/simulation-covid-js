@@ -37,7 +37,7 @@ export default class QuadroParticulasController{
         });
 
         // Desenhando quadrado teste
-        this.ctx.fillStyle = '#FF0';
+        this.ctx.fillStyle = '#0FF';
         this.ctx.fillRect(this.x, 0, 100, 100);
         // animando
         this.x++;        
