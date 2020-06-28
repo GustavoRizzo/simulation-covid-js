@@ -9,19 +9,13 @@ jobs:
         with:
           persist-credentials: false
           
-      - name: install node ⚙️
-        uses: actions/setup-node@v1 #this installs node and npm for us
-        with:
-          node-version: '10.x'
-
       - name: npm Install🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
           node --version
           npm install
-          
-      - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-        run: |
-          npm run build
+                
+      - name: Build Predeploy 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: npm run predeploy
           
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
