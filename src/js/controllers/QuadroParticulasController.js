@@ -1,4 +1,5 @@
 import Particula from '../models/Particula'
+import Particle from 'particle-canvas-gustavorizzo'
 
 export default class QuadroParticulasController{
 
@@ -17,9 +18,18 @@ export default class QuadroParticulasController{
     
         this.particulas = [];
 
-        for (var i=0; i<35; i++){
+        for (var i=0; i<10; i++){
             this.particulas.push( new Particula(this.ctx) );
         }  
+
+        // teste biblioteca
+        this.particles = [];
+        for (var i=0; i<20; i++){
+            let p = new Particle(this.ctx)
+            p.radius = 4;
+            p.strColor = '#0FF';
+            this.particles.push( p );
+        } 
 
         this.x = 0;
         this.render();
@@ -34,6 +44,12 @@ export default class QuadroParticulasController{
         this.particulas.forEach (particula => {
             particula.draw(this.ctx);
             Particula.linkParticulas(particula, this.particulas, this.ctx);        
+        });
+
+        // Testando Biblioteca Particle
+        this.particles.forEach (p => {
+            p.draw();
+            //Particle.linkParticles(p, this.particles , this.ctx);
         });
 
         // Desenhando quadrado teste
